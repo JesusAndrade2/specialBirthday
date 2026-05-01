@@ -1,5 +1,5 @@
 import confetti from "canvas-confetti";
-import { useEffect,useState } from 'react'
+import { useState } from 'react'
 
 import './App.css'
 
