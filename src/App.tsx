@@ -1,14 +1,79 @@
 import confetti from "canvas-confetti";
-import { useState } from 'react'
+import { useEffect,useState } from 'react'
 
 import './App.css'
 
 function App() {
   const [mostrarMensaje, setMostrarMensaje] = useState(false);
+  const targetDate = new Date(2026, 4, 1, 0, 0, 0);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  const [unlocked, setUnlocked] = useState(false);
+
+
+   useEffect(() => {
+    const timer = setInterval(() => {
+      const now = Date.now();
+      const difference = targetDate.getTime() - now;
+
+      if (difference <= 0) {
+        setUnlocked(true);
+
+        // 🎉 confetti automático al desbloquear
+        confetti({
+          particleCount: 200,
+          spread: 120,
+        });
+
+        clearInterval(timer);
+        return;
+      }
+
+      setTimeLeft({
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / (1000 * 60)) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  
 
   return (
     <>
 
+ {!unlocked && (
+        <div className="overlay">
+          <h1>⏳ Falta poco...</h1>
+
+          <div className="countdown">
+            <div>
+              <span>{timeLeft.days}</span>
+              <p>días</p>
+            </div>
+            <div>
+              <span>{timeLeft.hours}</span>
+              <p>horas</p>
+            </div>
+            <div>
+              <span>{timeLeft.minutes}</span>
+              <p>min</p>
+            </div>
+            <div>
+              <span>{timeLeft.seconds}</span>
+              <p>seg</p>
+            </div>
+          </div>
+        </div>
+      )}
 
 
             <div className="container">
