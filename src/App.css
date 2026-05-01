@@ -18,22 +18,19 @@
 }
 
 .container {
-	border: 2px solid red;
-	padding: 5rem 1rem;
+	padding: 8rem 1rem 0;
 	color: antiquewhite;
-	text-align: center;
-	font-family: Arial, sans-serif;
+	font-family: 'Times New Roman', Times, serif;
 	background: linear-gradient(135deg, #c084fc26, #c084fc80);
-	min-height: 100vh;
+	min-height: 90dvh;
 }
 .title {
-	border: 2px solid red;
-	margin: 0 auto;
+	margin: 1rem auto;
 	padding: 3rem;
 	border-radius: 1rem 0;
 
 	background: #00000026;
-	box-shadow: 0 0 5px #6a4cff;
+	/* box-shadow: 0 0 5px #6a4cff; */
 	width: fit-content;
 	font-size: clamp(2rem, 6vw, 3rem);
 	display: flex;
@@ -44,9 +41,14 @@
 	text-align: center;
 	color: var(--accent);
 	box-shadow:
-		0 0 5px #6a4cff,
-		0 0 20px #6a4cff;
+		0 0 5px #9dff00,
+		0 0 20px #6a4cff,
+		0 0 30px #6a4cff;
 
+	text-shadow:
+		0 0 5px #6a4cff,
+		0 0 10px #6a4cff,
+		0 0 20px #6a4cff;
 	animation: pulse 2s infinite;
 
 	@media (max-width: 720px) {
@@ -56,35 +58,28 @@
 @keyframes pulse {
 	0% {
 		text-shadow: 0 0 5px #6a4cff;
-		box-shadow: 0 0 5px #6a4cff;
 	}
 	50% {
-		text-shadow: 0 0 5px #6a4cff;
-		box-shadow: 0 0 20px #6a4cff;
+		text-shadow: 0 0 20px #6a4cff;
 	}
 	100% {
 		text-shadow: 0 0 5px #6a4cff;
-		box-shadow: 0 0 5px #6a4cff;
 	}
 }
 
 button {
-	/* margin-top: 20px;
-	padding: 10px 20px;
-	border: none;
-	background-color: #4c267226;
-	color: aliceblue;
-	border-radius: 8px;*/
+	background: #00000026;
 	cursor: pointer;
 	font-size: 1.3rem;
 	font-weight: 700;
 	padding: 0.5rem 1rem 0.5rem 1.3rem;
 	border-radius: 1rem 0;
 	color: var(--accent);
-	background: var(--accent-bg);
+	background: #00000026;
 	border: 2px solid transparent;
 	transition: border-color 0.3s;
-	margin: 0 auto;
+	margin: 1rem auto;
+	animation: pulsebutton 2s infinite;
 
 	&:hover {
 		border-color: var(--accent-border);
@@ -94,9 +89,21 @@ button {
 		outline-offset: 2px;
 	}
 }
+@keyframes pulsebutton {
+	0% {
+		box-shadow: 0 0 5px #6a4cff;
+	}
+	50% {
+		box-shadow: 0 0 20px #6a4cff;
+	}
+	100% {
+		box-shadow: 0 0 5px #6a4cff;
+	}
+}
 .mensaje {
-	border: 2px solid #ff0000;
-	padding: 0.5rem;
+	padding: 2rem;
+	max-width: 500px;
+	margin: 0 auto;
 
 	animation: fadeIn 1s ease-in-out;
 }
