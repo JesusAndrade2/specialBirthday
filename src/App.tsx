@@ -45,6 +45,7 @@ function App() {
           <p>
              Espero que este día esté lleno de alegría, amor y momentos inolvidables, un abrazo a la distancia y no olvides que aqui hay alguien que te quiere mucho {";)"} mucho mucho {"<3"}
           </p>
+          <p>Feliz Cumpleaos!! :*</p>
           
         </div>
       )}
